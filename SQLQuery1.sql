@@ -1,4 +1,4 @@
-create table UserN
+﻿create table UserN
 (
 ID int Primary Key IDENTITY(1,1),
 UserName nvarchar(MAX),
@@ -51,4 +51,29 @@ CategoryID int,
 )
 
 
+
+insert into UserN (UserName, UserSurname,UserEmail, UserLog, UserPhoneN, UserAddress, UserCity,UserVillage)
+values('ali','veli','aliveli@gmail.com','02.03.1996','533446765','halimsokak','eskisehir','tepebası')
+
+insert into Fault2 values ('02.02.2002','suyadustu','paslanma','kullancihata','3848382','02.02.2022','ali','sonasama','23','24','25')
+
+insert into Employee values ('apo1','teko')
+
+insert into Productf values ('samsung')
+
+insert into ProductCate values ('23', 'yanma','26')
+
+
+create proc sp_UserN (@Name nvarchar(45))
+as
+begin
+insert into UserN (UserName) values (@Name)
+end
+
+exec sp_UserN 'apo'
+
+delete from UserN where UserName = 'apo'
+
+
+--4
 
