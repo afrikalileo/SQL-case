@@ -63,17 +63,31 @@ insert into Productf values ('samsung')
 
 insert into ProductCate values ('23', 'yanma','26')
 
-
+--3
 create proc sp_UserN (@Name nvarchar(45))
 as
 begin
 insert into UserN (UserName) values (@Name)
 end
 
-exec sp_UserN 'apo'
+exec sp_UserN 'veli'
 
-delete from UserN where UserName = 'apo'
+create proc sp_UserNdelete (@Name nvarchar(MAX))
+as
+begin
+delete from UserN where UserName = @Name
+END
+
+exec sp_UserNdelete 'veli'
 
 
+create proc sp_UserNupdate (@Name nvarchar(MAX))
+as
+begin
+Update UserN set UserName = @Name
+end
+
+exec sp_UserNupdate 'USERN'
 --4
 
+--
